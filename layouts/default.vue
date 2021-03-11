@@ -18,6 +18,6 @@
   }
   .bg {
     @apply fixed left-0 top-0 bg-cover bg-clip-padding h-full w-full overflow-auto p-1 md:p-0;
-    background-image: url(/images/night-cherry.jpg);
+    background-image: url(~assets/images/night-cherry.jpg);
   }
 </style>

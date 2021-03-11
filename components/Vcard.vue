@@ -2,7 +2,7 @@
   <box>
     <div class="vcard">
       <div class="vc-left">
-        <img src="/images/penguin.png" alt="アバターのペンギンアイコン">
+        <img src="~/assets/images/penguin.png" alt="アバターのペンギンアイコン">
       </div>
       <div class="vc-right">
         <p class="vc-name">

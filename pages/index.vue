@@ -11,14 +11,14 @@
         :label="'Dolphin (ActivityPub)'"
         :tooltip="'分散型SNS (Dolphin) 個人サーバ<br>@krpn@kuropen.me<br>Mastodon, MisskeyなどのActivityPub対応SNSを<br>ご利用の方はリモートフォローが可能です。'"
         :to="'https://kuropen.me/@krpn'"
-        :image="'/images/dolphin.png'"
+        :image="require('~/assets/images/dolphin.png')"
       />
       <index-button :label="'SNSポリシー'" :to="'/social'" :icon="['fas', 'exclamation-circle']" />
       <index-button
         :label="'赤べこからパワーを'"
         :tooltip="'アマビエもいいけど赤べこも。<br>福島県会津地方に伝わる神聖な赤い牛を模した張り子人形・「赤べこ」は、<br>天然痘の感染から子供を守ったという言い伝えがあるなど、<br>感染防止のお守りとしても知られています。'"
         :to="'https://akabe.co/'"
-        :image="'/images/beko.png'"
+        :image="require('~/assets/images/beko.png')"
         :color="'md:block bg-red-600 dark:bg-red-900 border-red-800 text-gray-200'"
       />
     </div>
