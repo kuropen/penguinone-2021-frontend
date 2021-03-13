@@ -12,7 +12,7 @@
             <font-awesome-icon :icon="['fas', 'hashtag']" />
             {{ article.categories.map((category) => category.name).join(', ') }}
           </p>
-          <p v-if="article.external">
+          <p v-if="article.external && article.external !== 'None'">
             <font-awesome-icon :icon="['fas', 'external-link-alt']" />
             <!-- Translation should be considered when an external posting site name includes whitespace -->
             {{ article.external }}
