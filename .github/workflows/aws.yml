@@ -78,5 +78,5 @@ jobs:
       with:
         task-definition: ${{ steps.task-def.outputs.task-definition }}
         service: penguinone-2021-frontend-service
-        cluster: default
+        cluster: KP-ECS-Cluster
         wait-for-service-stability: true
