@@ -51,6 +51,10 @@ export default {
     '@nuxtjs/axios'
   ],
 
+  serverMiddleware: [
+    '~/middleware/cache-control'
+  ],
+
   markdownit: {
     injected: true,
     breaks: true,
