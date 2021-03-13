@@ -1,20 +1,17 @@
 <template>
-  <div class="bg">
-    <div class="container max-w-screen-sm md:mx-auto">
-      <site-head />
-      <Nuxt />
-      <author />
-      <site-foot />
-    </div>
+  <div class="container max-w-screen-sm md:mx-auto">
+    <site-head />
+    <Nuxt />
+    <author />
+    <site-foot />
   </div>
 </template>
 
 <style lang="postcss">
+  body {
+    @apply bg-gradient-to-r from-blue-500 to-green-500;
+  }
   .prose {
     @apply m-auto;
-  }
-  .bg {
-    @apply fixed left-0 top-0 bg-cover bg-clip-padding h-full w-full overflow-auto p-1 md:p-0;
-    background-image: url(~assets/images/night-cherry.jpg);
   }
 </style>
