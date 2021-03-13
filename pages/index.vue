@@ -1,34 +1,20 @@
 <template>
   <div>
-    <div class="idx-grid">
-      <index-button :label="'自己紹介'" :to="'/profile'" :icon="['fas', 'address-card']" />
-      <index-button :label="'ブログ'" :to="'/'" :icon="['fas', 'book']" />
-      <index-button :label="'Twitter'" :tooltip="'Twitter @kuropen_aizu'" :to="'https://twitter.com/kuropen_aizu'" :icon="['fab', 'twitter-square']" />
-      <index-button :label="'Facebook'" :to="'https://www.facebook.com/yuda.hirochika'" :icon="['fab', 'facebook-square']" />
-      <index-button :label="'Instagram'" :tooltip="'Instagram @kuropen'" :to="'https://instagram.com/kuropen'" :icon="['fab', 'instagram-square']" />
-      <index-button :label="'GitHub'" :to="'https://github.com/kuropen'" :icon="['fab', 'github']" />
-      <index-button
-        :label="'Dolphin (ActivityPub)'"
-        :tooltip="'分散型SNS (Dolphin) 個人サーバ<br>@krpn@kuropen.me<br>Mastodon, MisskeyなどのActivityPub対応SNSを<br>ご利用の方はリモートフォローが可能です。'"
-        :to="'https://kuropen.me/@krpn'"
-        :image="require('~/assets/images/dolphin.png')"
-      />
-      <index-button :label="'SNSポリシー'" :to="'/social'" :icon="['fas', 'exclamation-circle']" />
-      <index-button
-        :label="'赤べこからパワーを'"
-        :tooltip="'アマビエもいいけど赤べこも。<br>福島県会津地方に伝わる神聖な赤い牛を模した張り子人形・「赤べこ」は、<br>天然痘の感染から子供を守ったという言い伝えがあるなど、<br>感染防止のお守りとしても知られています。'"
-        :to="'https://akabe.co/'"
-        :image="require('~/assets/images/beko.png')"
-        :color="'md:block bg-red-600 dark:bg-red-900 border-red-800 text-gray-200'"
-      />
-    </div>
+    <h2 class="sr-only">記事一覧</h2>
+    <akabeko />
+    <article-link v-for="note in notes" :key="note.id" :article="note" />
   </div>
 </template>
 
 <script>
-import IndexButton from '~/components/IndexButton.vue'
+import Akabeko from '~/components/Akabeko.vue'
+import ArticleLink from '~/components/ArticleLink.vue'
 export default {
-  components: { IndexButton }
+  components: { Akabeko, ArticleLink },
+  async asyncData ({ $axios }) {
+    const notes = await $axios.$get('https://penguinone-cms.kuropen.org/notes?_sort=published:DESC')
+    return { notes }
+  }
 }
 </script>
 

@@ -1,6 +1,6 @@
 export default {
   // Target: https://go.nuxtjs.dev/config-target
-  target: 'static',
+  target: 'server',
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
@@ -11,10 +11,15 @@ export default {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '' }
+      { hid: 'description', name: 'description', content: '' },
+      { hid: 'og_site_name', property: 'og:site_name', content: 'Penguinone' },
+      { hid: 'og_title', property: 'og:title', content: 'Penguinone' },
+      { hid: 'og_url', property: 'og:url', content: 'https://penguinone.kuropen.org/' },
+      { hid: 'og_image', property: 'og:image', content: 'https://penguinone.kuropen.org/siteImages/penguin.png' },
+      { hid: 'og_type', property: 'og:type', content: 'website' },
     ],
     link: [
-      { rel: 'icon', type: 'image/png', href: '/images/penguin.png' }
+      { rel: 'icon', type: 'image/png', href: '/siteImages/penguin.png' }
     ]
   },
 
@@ -52,7 +57,9 @@ export default {
     html: true,
     linkify: true,
     typography: true,
-    use: []
+    use: [
+      'markdown-it-footnote'
+    ]
   },
 
   axios: {

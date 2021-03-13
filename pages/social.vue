@@ -20,6 +20,15 @@ export default {
   async asyncData ({ $axios }) {
     const policy = await $axios.$get('https://penguinone-cms.kuropen.org/sns-policy')
     return { policy }
+  },
+  head () {
+    return {
+      title: 'SNSポリシー - Penguinone',
+      meta: [
+        { hid: 'og_title', property: 'og:title', content: 'SNSポリシー' },
+        { hid: 'og_url', property: 'og:url', content: 'https://penguinone.kuropen.org/social' },
+      ]
+    }
   }
 }
 </script>
