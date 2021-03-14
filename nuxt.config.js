@@ -33,6 +33,7 @@ export default {
   plugins: [
     '~/plugins/fontawesome.js',
     '~/plugins/tooltip.js',
+    '~/plugins/markdownit.js',
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -55,16 +56,7 @@ export default {
     '~/middleware/cache-control'
   ],
 
-  markdownit: {
-    injected: true,
-    breaks: true,
-    html: true,
-    linkify: true,
-    typography: true,
-    use: [
-      'markdown-it-footnote'
-    ]
-  },
+  // markdownit: moved to plugins/markdownit.js
 
   axios: {
   },
