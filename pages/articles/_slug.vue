@@ -24,7 +24,16 @@
         </dl>
         <dl>
           <dt>カテゴリ</dt>
-          <dd><client-only><font-awesome-icon :icon="['fas', 'hashtag']" /></client-only> {{ article.categories.map((category) => category.name).join(', ') }}</dd>
+          <dd>
+            <client-only>
+              <font-awesome-icon :icon="['fas', 'hashtag']" />
+            </client-only>
+            <div v-for="category in article.categories" :key="category.slug" class="inline mr-1">
+              <nuxt-link :to="`/category/${category.slug}`">
+                {{ category.name }}
+              </nuxt-link>
+            </div>
+          </dd>
         </dl>
       </div>
     </div>

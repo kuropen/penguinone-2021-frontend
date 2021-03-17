@@ -1,16 +1,22 @@
 <template>
-  <form>
-    <select v-model="selectedItem" @change="move">
-      <option value="all">すべて表示</option>
-      <option
-        v-for="category in categories"
-        :key="category.slug"
-        :value="category.slug"
-      >
-        {{ category.name }} ({{ category.notes.length }})
-      </option>
-    </select>
-  </form>
+  <box>
+    <form>
+      <div class="inline">
+        <font-awesome-icon :icon="['fas', 'hashtag']" />
+        カテゴリ:
+      </div>
+      <select v-model="selectedItem" class="categorySelector" @change="move">
+        <option value="all">すべて表示</option>
+        <option
+          v-for="category in categories"
+          :key="category.slug"
+          :value="category.slug"
+        >
+          {{ category.name }} ({{ category.notes.length }})
+        </option>
+      </select>
+    </form>
+  </box>
 </template>
 
 <script>
@@ -38,8 +44,16 @@ export default {
       } else {
         moveTo = `/category/${this.selectedItem}`
       }
-      window.location.href = moveTo
+      this.$router.push({
+        path: moveTo
+      })
     }
   }
 }
 </script>
+
+<style lang="postcss">
+  .categorySelector {
+    @apply dark:bg-gray-800;
+  }
+</style>
