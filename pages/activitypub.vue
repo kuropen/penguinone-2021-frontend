@@ -14,6 +14,15 @@ export default {
   async asyncData ({ $axios }) {
     const apInfo = await $axios.$get('https://penguinone-cms.kuropen.org/activity-pub')
     return { apInfo }
+  },
+  head () {
+    return {
+      title: 'ActivityPubアカウントについて - Penguinone',
+      meta: [
+        { hid: 'og_title', property: 'og:title', content: 'ActivityPubアカウントについて' },
+        { hid: 'og_url', property: 'og:url', content: 'https://penguinone.kuropen.org/activitypub' },
+      ]
+    }
   }
 }
 </script>

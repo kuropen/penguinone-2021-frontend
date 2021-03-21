@@ -5,8 +5,7 @@
         SNSポリシー
       </h2>
       <p>
-        最終更新日: {{ policy.last_update }}<br>
-        対象となるSNSは<nuxt-link to="/">トップページ</nuxt-link>をご確認ください。
+        最終更新日: {{ policy.last_update }}
       </p>
     </box>
     <box>
