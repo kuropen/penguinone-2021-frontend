@@ -18,7 +18,6 @@
 </template>
 
 <style lang="postcss">
-  @import url(https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap);
   header {
     @apply flex flex-row;
   }
