@@ -12,6 +12,7 @@
           <author-button :label="'Twitter'" :tooltip="'Twitter @kuropen_aizu'" :to="'https://twitter.com/kuropen_aizu'" :icon="['fab', 'twitter-square']" />
           <author-button :label="'Facebook'" :to="'https://www.facebook.com/yuda.hirochika'" :icon="['fab', 'facebook-square']" />
           <author-button :label="'Instagram'" :tooltip="'Instagram @kuropen'" :to="'https://instagram.com/kuropen'" :icon="['fab', 'instagram-square']" />
+          <author-button :label="'Keybase'" :to="'https://keybase.io/kuropen'" :icon="['fab', 'keybase']" />
           <author-button :label="'GitHub'" :to="'https://github.com/kuropen'" :icon="['fab', 'github']" />
           <author-button
             :label="'Dolphin (ActivityPub)'"
