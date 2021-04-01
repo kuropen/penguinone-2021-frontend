@@ -50,10 +50,11 @@
 
 <script>
 export default {
-  async asyncData ({ $axios, params, error }) {
+  async asyncData ({ $axios, $now, params, error }) {
     const { slug } = params
     try {
-      const fetchResult = await $axios.$get(`https://penguinone-cms.kuropen.org/notes?slug=${encodeURI(slug)}`)
+      const now = $now()
+      const fetchResult = await $axios.$get(`https://penguinone-cms.kuropen.org/notes?slug=${encodeURI(slug)}&published_lte=${now}`)
       if (fetchResult.length === 0) {
         error({
           statusCode: 404,

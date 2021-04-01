@@ -34,6 +34,7 @@ export default {
   plugins: [
     '~/plugins/fontawesome.js',
     '~/plugins/tooltip.js',
+    '~/plugins/now.js',
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
