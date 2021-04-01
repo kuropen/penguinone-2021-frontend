@@ -13,8 +13,8 @@ const pad = (number) => {
 export default (dummy, inject) => {
   inject('now', () => {
     const date = new Date()
-    return date.getUTCFullYear() +
-      '-' + pad(date.getUTCMonth() + 1) +
-      '-' + pad(date.getUTCDate())
+    return date.getFullYear() +
+      '-' + pad(date.getMonth() + 1) +
+      '-' + pad(date.getDate())
   })
 }
