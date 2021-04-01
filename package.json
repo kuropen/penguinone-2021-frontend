@@ -20,6 +20,7 @@
     "@tailwindcss/forms": "^0.2.1",
     "@tailwindcss/typography": "^0.4.0",
     "core-js": "^3.8.3",
+    "date-fns-timezone": "^0.1.4",
     "markdown-it-footnote": "^3.0.2",
     "nuxt": "^2.14.12",
     "v-tooltip": "^2.1.2"

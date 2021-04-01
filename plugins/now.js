@@ -1,20 +1,11 @@
-/**
- * Zero padding
- * @param {Number} number
- * @return {String}
- */
-const pad = (number) => {
-  if (number < 10) {
-    return '0' + number
-  }
-  return number
-}
+import { formatToTimeZone } from 'date-fns-timezone'
+
+const FORMAT = 'YYYY-MM-DD'
+const TIME_ZONE_TOKYO = 'Asia/Tokyo'
 
 export default (dummy, inject) => {
   inject('now', () => {
     const date = new Date()
-    return date.getFullYear() +
-      '-' + pad(date.getMonth() + 1) +
-      '-' + pad(date.getDate())
+    return formatToTimeZone(date, FORMAT, { timeZone: TIME_ZONE_TOKYO })
   })
 }
