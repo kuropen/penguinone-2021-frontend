@@ -5,7 +5,7 @@
     <akabeko />
     <article-link v-for="note in notes" :key="note.id" :article="note" />
     <div class="grid grid-flow-col grid-cols-3 grid-rows-1 gap-2">
-      <nuxt-link :to="`?page=${pageNum - 1}`" :class="{invisible: page == 0}">
+      <nuxt-link :to="`?page=${pageNum - 1}`" :class="{invisible: pageNum <= 0}">
         <box>
           <font-awesome-icon :icon="['fas', 'chevron-left']" />
           <span class="hidden md:inline">前のページ</span>
@@ -14,7 +14,7 @@
       <box class="text-center">
         {{ pageNum + 1 }} / {{ maxPage }}
       </box>
-      <nuxt-link :to="`?page=${pageNum + 1}`" :class="{invisible: page >= maxPage}">
+      <nuxt-link :to="`?page=${pageNum + 1}`" :class="{invisible: (pageNum + 1) >= maxPage}">
         <box class="text-right">
           <span class="hidden md:inline">次のページ</span>
           <font-awesome-icon :icon="['fas', 'chevron-right']" />
