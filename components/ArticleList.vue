@@ -5,16 +5,16 @@
     <akabeko />
     <article-link v-for="note in notes" :key="note.id" :article="note" />
     <div class="grid grid-flow-col grid-cols-3 grid-rows-1 gap-2">
-      <nuxt-link :to="`?page=${Math.max(page - 1, 0)}`">
+      <nuxt-link :to="`?page=${pageNum - 1}`" :class="{invisible: page == 0}">
         <box>
           <font-awesome-icon :icon="['fas', 'chevron-left']" />
           <span class="hidden md:inline">前のページ</span>
         </box>
       </nuxt-link>
       <box class="text-center">
-        {{ parseInt(page) + 1 }} / {{ maxPage + 1 }}
+        {{ pageNum + 1 }} / {{ maxPage }}
       </box>
-      <nuxt-link :to="`?page=${Math.min(page + 1, maxPage)}`">
+      <nuxt-link :to="`?page=${pageNum + 1}`" :class="{invisible: page >= maxPage}">
         <box class="text-right">
           <span class="hidden md:inline">次のページ</span>
           <font-awesome-icon :icon="['fas', 'chevron-right']" />
@@ -61,8 +61,11 @@ export default {
     }
   },
   computed: {
+    pageNum () {
+      return parseInt(this.page)
+    },
     maxPage () {
-      return Math.floor(this.count / this.articlesPerPage)
+      return Math.ceil(this.count / this.articlesPerPage)
     }
   }
 }
