@@ -1,6 +1,13 @@
 <template>
   <div>
-    <article-list :categories="categories" :notes="notes" :category="category.slug" />
+    <article-list
+      :categories="categories"
+      :notes="notes"
+      :category="category.slug"
+      :page="$route.query.page || '0'"
+      :count="count"
+      :articles-per-page="10"
+    />
   </div>
 </template>
 
@@ -8,7 +15,7 @@
 import ArticleList from '~/components/ArticleList.vue'
 export default {
   components: { ArticleList },
-  async asyncData ({ $axios, $now, params, error }) {
+  async asyncData ({ $axios, query, $now, params, error }) {
     const { slug } = params
     const categories = await $axios.$get('https://penguinone-cms.kuropen.org/categories')
     let category = null
@@ -23,8 +30,16 @@ export default {
     }
     const { id } = category
     const now = $now()
-    const notes = await $axios.$get(`https://penguinone-cms.kuropen.org/notes?_sort=published:DESC&published_lte=${now}&categories_in=${id}`)
-    return { notes, categories, category }
-  }
+    const offset = (query.page || 0) * 10
+    const notesPromise = $axios.$get(`https://penguinone-cms.kuropen.org/notes?_sort=published:DESC&published_lte=${now}&categories_in=${id}&_limit=10&_start=${offset}`)
+    const notesCountPromise = $axios.$get(`https://penguinone-cms.kuropen.org/notes/count?published_lte=${now}&categories_in=${id}`)
+    return {
+      notes: await notesPromise,
+      count: await notesCountPromise,
+      categories,
+      category
+    }
+  },
+  watchQuery: ['page']
 }
 </script>
