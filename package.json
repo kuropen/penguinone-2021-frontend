@@ -15,6 +15,7 @@
     "@fortawesome/free-brands-svg-icons": "^5.15.2",
     "@fortawesome/free-solid-svg-icons": "^5.15.2",
     "@fortawesome/vue-fontawesome": "^2.0.2",
+    "@nuxtjs/ackee": "^3.0.1",
     "@nuxtjs/axios": "^5.12.5",
     "@nuxtjs/markdownit": "^2.0.0",
     "@tailwindcss/forms": "^0.2.1",

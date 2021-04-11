@@ -45,6 +45,7 @@ export default {
     // https://go.nuxtjs.dev/eslint
     '@nuxtjs/eslint-module',
     '@nuxtjs/tailwindcss',
+    '@nuxtjs/ackee',
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -69,6 +70,11 @@ export default {
   },
 
   axios: {
+  },
+
+  ackee: {
+    server: 'https://ackee.eternie-labs.net',
+    domainId: 'ce43a48e-3af7-49de-bbb1-a45a0b8a9a4c'
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
