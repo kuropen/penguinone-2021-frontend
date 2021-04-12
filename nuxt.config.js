@@ -74,7 +74,7 @@ export default {
 
   ackee: {
     server: 'https://ackee.eternie-labs.net',
-    domainId: 'ce43a48e-3af7-49de-bbb1-a45a0b8a9a4c'
+    domainId: '342defdb-9042-49ad-9359-803d4811006f'
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
