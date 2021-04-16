@@ -1,3 +1,6 @@
+import axios from 'axios'
+import { getCurrentDateInTokyo } from './plugins/now'
+
 export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: 'server',
@@ -51,7 +54,8 @@ export default {
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     '@nuxtjs/markdownit',
-    '@nuxtjs/axios'
+    '@nuxtjs/axios',
+    '@nuxtjs/feed'
   ],
 
   serverMiddleware: [
@@ -76,6 +80,36 @@ export default {
     server: 'https://ackee.eternie-labs.net',
     domainId: '342defdb-9042-49ad-9359-803d4811006f'
   },
+
+  feed: [
+    // A default feed configuration object
+    {
+      path: '/feed.xml', // The route to your feed.
+      async create(feed) {
+        feed.options = {
+          title: 'Penguinone',
+          link: 'https://penguinone.kuropen.org/',
+          description: 'Penguinote: Kuropen\'s Blog.',
+          language: 'ja',
+          copyright: 'All rights reserved. Copyright (C) Kuropen.'
+        }
+        const now = getCurrentDateInTokyo()
+        const articles = await axios.get(`https://penguinone-cms.kuropen.org/notes?published_lte=${now}`)
+        articles.data.forEach(article => {
+          feed.addItem({
+            title: article.title,
+            id: `https://penguinone.kuropen.org/articles/${article.slug}`,
+            link: article.external_url || `https://penguinone.kuropen.org/articles/${article.slug}`,
+            date: new Date(article.published),
+            content: article.text
+          })
+        })
+      },
+      cacheTime: 1000 * 60 * 15, // How long should the feed be cached
+      type: 'rss2', // Can be: rss2, atom1, json1
+      data: [] // Will be passed as 2nd argument to `create` function
+    }
+  ],
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {

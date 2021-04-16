@@ -17,6 +17,7 @@
     "@fortawesome/vue-fontawesome": "^2.0.2",
     "@nuxtjs/ackee": "^3.0.1",
     "@nuxtjs/axios": "^5.12.5",
+    "@nuxtjs/feed": "^2.0.0",
     "@nuxtjs/markdownit": "^2.0.0",
     "@tailwindcss/forms": "^0.2.1",
     "@tailwindcss/typography": "^0.4.0",
